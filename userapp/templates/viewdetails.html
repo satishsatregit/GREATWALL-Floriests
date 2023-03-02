@@ -1,0 +1,31 @@
+{%extends 'home.html'%}
+{%block content%}
+<center>
+    <h1><i>Floweries Details</i></h1>
+    <form method="post" action="/addToCart">
+    {%csrf_token%}
+    <table class="table">
+        <tr><td colspan="2" align="center"><img src="{{flower1.image.url}}" height="300px" width="300px">
+        </td></tr>
+        <tr><td>Flower Name</td>
+        <td>{{flower1.pname}}</td></tr>
+        <tr><td>Price</td>
+        <td>{{flower1.price}}</td></tr>
+        <tr><td>Description</td>
+        <td>{{flower1.description}}</td></tr>
+        <tr><td>Quantity</td>
+            <td><select name="qty" class="form-control">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select></td></tr>
+        <tr><td>
+            <button type="submit" class="btn btn-success">Add To Cart</button>
+        </td><td>
+            <input type="hidden" name="floid" value="{{flower1.id}}"/>
+        </td></tr>
+    </table>
+</center>
+{%endblock%}
